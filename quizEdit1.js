@@ -9,5 +9,15 @@
 // the three letter prompt should allow three letters, if the total string length is greater than four, than prompt a message saying please only type four letters
 // save the score and thhe initials on the web API
 
+var quizStart
+var countdownTimer
+var timeRemaining
 
+// function started by a button click
+function start() { 
+
+    // start countdown timer
+    countdownTimer = startTimer(function() {
+    
+        timeRemaining = 180 
 
