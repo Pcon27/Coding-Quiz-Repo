@@ -13,36 +13,56 @@ var quizStart
 var countdownTimer
 var timeRemaining
 var timer = document.querySelector(".timer");
+var quizQuestion = $(".question")
+var incorrect1 = $(".incorrect1")
+var incorrect2 = $(".incorrect2")
+var incorrect3 = $(".incorrect3")
+var correct = $(".correct")
 // var timeRemaining = 180;
 
 // function started by a button click
 function start() {
 
+    
 // establish time remaining
     var timeRemaining = 5;
 
     // start countdown timer
     countdownTimer = setInterval(function() {
-    
+
         timeRemaining--;
         timer.textContent = timeRemaining;
 
-    
+        
+        // quiz questions and responses
+        quizQuestion.text("what color is the sky?");
 
-    if(timeRemaining === 0) {
+        incorrect.text("red")
+
+        correct.text("blue")
+
+        
+    
+       
+
+    
+        if(timeRemaining === 0) {
         // Stops execution of action at set interval
         //When the countdown reaches zero, we want the action to stop. The clearInterval() method stops the execution of the interval. It takes one parameter: the variable name assigned to the interval
         clearInterval(countdownTimer);
         // Calls function to create and append image
         timer.textContent = ""
+        prompt("Game Over! your score is ?/10, please eneter your initials")
+        return;
       }
+
+      
+
 
     }, 1000);
 }
 
-
-
-
+// quizQuestion.text("what color is the sky?");
 
 
 
