@@ -1,2 +1,2 @@
-# Coding-Quiz-Repo
-Repo for the coding quiz homework due 6-29
+# Quiz Homework 
+## This is a quiz made for homework due 6-29
