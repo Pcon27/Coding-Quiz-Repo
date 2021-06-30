@@ -46,10 +46,53 @@ function displayAnswers(index){
     answerButton4.textContent = questions[index].answers[3];
 };
 
+answerButton1.onclick = function() {
+    currentQuestion = currentQuestion + 1;
+    displayQuestions(currentQuestion);
+    displayAnswers(currentQuestion);
+    console.log(currentQuestion);
+
+};
+
+answerButton2.onclick = function() {
+    currentQuestion = currentQuestion + 1;
+    displayQuestions(currentQuestion);
+    displayAnswers(currentQuestion);
+    console.log(currentQuestion);
+};
+
+answerButton3.onclick = function() {
+    currentQuestion = currentQuestion + 1;
+    displayQuestions(currentQuestion);
+    displayAnswers(currentQuestion);
+    console.log(currentQuestion);
+};
+
+answerButton4.onclick = function() {
+    currentQuestion = currentQuestion + 1;
+    displayQuestions(currentQuestion);
+    displayAnswers(currentQuestion);
+    console.log(currentQuestion);
+};
+
+function startTimer() {
+    timeRemaining = 180;
+    countdownTimer = setInterval(function(){
+        if(timeRemaining = 0){
+            clearInterval(countdownTimer);
+            timer.textContent = "";
+            prompt("Game Over! your score is ?/10, please eneter your initials");
+        }
+    }, 1000);
+};
+
+
+
+
 
 function start() {
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
+    startTimer();
     console.log(questions[currentQuestion].answers[0]);
 };
-
