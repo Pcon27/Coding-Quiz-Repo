@@ -43,6 +43,7 @@ var questions = [{
 
 // functions 
 
+
 // function that displays question when called upon
 function displayQuestions(index){
     quizQuestion.textContent = questions[index].question;
@@ -138,15 +139,17 @@ function start() {
         answerButton2.style.visibility="hidden";
         answerButton3.style.visibility="hidden";
         answerButton4.style.visibility="hidden";
-        highScore.textContent="Highscore:" + currentHigh;
         yourScore.textContent= ("Your score: " + currentScore + " " + correct  + "/5");
+        document.getElementById("start").style.visibility="visable";
+        highScore.textContent = ("High Score :" + localStorage.getItem("high score"))
+        localStorage.setItem("high score", currentScore + " " + correct  + "/5");
     };
     
     // if (currentQuestion === 5){
     //     prompt("Game Over! your score is ?/5, please eneter your initials");
     //     return;
     // };
-    
+
     
 }, 
 1000);};
