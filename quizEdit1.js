@@ -14,55 +14,112 @@ var countdownTimer
 var timeRemaining
 var timer = document.querySelector(".timer");
 var quizQuestion = $(".question")
-var incorrect1 = $(".incorrect1")
-var incorrect2 = $(".incorrect2")
-var incorrect3 = $(".incorrect3")
-var correct = $(".correct")
+var answerButtons = document.querySelectorAll(".answerButton")
+var currentQuestion = 0;
+var questions = [{
+    question: "What color is the sky?",
+    answers: ["blue", "red", "yellow", "green"],
+    correct: "blue"
+}, {
+    question: "what year is it?",
+    answers: ["2018", "2019", "2020", "2021"],
+    correct: "2021"
+}, {
+    question: "Who won the Super Bowl in 2021?",
+    answers: ["Falcons", "Patriots", "Bucaneers", "Cheifs"],
+    correct: "Bucaneers"
+}, {
+    question: "Which of these go on your feet?",
+    answers: ["jacket", "shoes", "hat", "gloves"],
+    correct: "shoes"
+}, {
+    question: "how many wheels do bikes have?",
+    answers: ["1", "2", "3", "4"],
+    correct: "Bucaneers"
+}
+]
 // var timeRemaining = 180;
+function displayQuestions(index){
+    quizQuestion.textContent = questions[index].question
+};
 
-// function started by a button click
+answerButtons.onclick = function(){
+    currentQuestion ++;
+};
+
+
+
+// // function started by a button click
 function start() {
 
+    displayQuestions(currentQuestion);
+
+};
     
-// establish time remaining
-    var timeRemaining = 5;
+// // establish time remaining
+//     var timeRemaining = 5;
 
-    // start countdown timer
-    countdownTimer = setInterval(function() {
+//     // start countdown timer
+//     countdownTimer = setInterval(function() {
 
-        timeRemaining--;
-        timer.textContent = timeRemaining;
+//         timeRemaining--;
+//         timer.textContent = timeRemaining;
 
         
-        // quiz questions and responses
-        quizQuestion.text("what color is the sky?");
+//         // quiz questions and responses
+//         quizQuestion.text("what color is the sky?");
 
-        incorrect.text("red")
-
-        correct.text("blue")
-
+//         incorrect1.text("red");
+//         incorrect2.text("yellow");
+//         incorrect3.text("green");
+//         correct.text("blue");        
         
-    
-       
+//         if(timeRemaining === 0) {
+//         // Stops execution of action at set interval
+//         //When the countdown reaches zero, we want the action to stop. The clearInterval() method stops the execution of the interval. It takes one parameter: the variable name assigned to the interval
+//         clearInterval(countdownTimer);
+//         // Calls function to create and append image
+//         timer.textContent = ""
+//         prompt("Game Over! your score is ?/10, please eneter your initials")
+//       }
 
-    
-        if(timeRemaining === 0) {
-        // Stops execution of action at set interval
-        //When the countdown reaches zero, we want the action to stop. The clearInterval() method stops the execution of the interval. It takes one parameter: the variable name assigned to the interval
-        clearInterval(countdownTimer);
-        // Calls function to create and append image
-        timer.textContent = ""
-        prompt("Game Over! your score is ?/10, please eneter your initials")
-        return;
-      }
+//     // if (incorrect1.clicked == true){
+//     //   quizQuestion.text("What year is it");
+//     //   incorrect1.text("2018");
+//     //   incorrect2.text("2019");
+//     //   incorrect3.text("2010");
+//     //   correct.text("2021");
+//     //   console.log("hi")
+//     //   }
 
-      
+//     incorrect1.on('click', function() {
+//     // event.preventdefault();
+//     quizQuestion.text("What year is it");
+//     question === 2
+//       incorrect1.text("2018");
+//       incorrect2.text("2019");
+//       incorrect3.text("2010");
+//       correct.text("2021");
+//       console.log(quesion);
+//     //   }
+//       });
 
 
-    }, 1000);
-}
 
-// quizQuestion.text("what color is the sky?");
+//     }, 1000); 
 
+//     return;
+// }
 
+// if (quesion ===2) {
+// (incorrect1incorrect1.on('click', function() {
 
+// quizQuestion.text("What is the biggest fish?");
+// incorrect1.text("great white shark");
+// incorrect2.text("hammerhead shark");
+// incorrect3.text("tiger shark");
+// correct.text("whale shark");
+// console.log("hi");
+// })
+
+// )};
