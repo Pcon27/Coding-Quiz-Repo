@@ -1,6 +1,11 @@
-var quizStart
-var countdownTimer
-var timeRemaining
+var yourScore = document.getElementById("score");
+var currentScore 
+var highScore = document.getElementById("highscore")
+var currentHigh = document.getElementById("currenthigh")
+var quizStart;
+var countdownTimer;
+var timeRemaining = 60;
+var correct = 0;
 var timer = document.querySelector(".timer");
 var quizQuestion = document.querySelector(".question");
 var answerButtons = document.querySelectorAll(".answerButton");
@@ -28,8 +33,12 @@ var questions = [{
 }, {
     question: "how many wheels do bikes have?",
     answers: ["1", "2", "3", "4"],
-    correct: "Bucaneers"
-}
+    correct: "2"
+}, {
+    question: "",
+    answers: ["", "", "", ""],
+    correct: ""
+},
 ];
 
 // functions 
@@ -47,52 +56,97 @@ function displayAnswers(index){
 };
 
 answerButton1.onclick = function() {
+    if (currentQuestion===0){
+        correct ++;    
+        console.log(correct);
+    }
+    else if (currentQuestion > 0) {
+        timeRemaining = timeRemaining -10;
+    };
     currentQuestion = currentQuestion + 1;
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
-    console.log(currentQuestion);
+    // timeRemaining = timeRemaining -10;
+    
 
 };
 
 answerButton2.onclick = function() {
+    if (currentQuestion===3 || currentQuestion===4 ){
+        correct ++;    
+        console.log(correct);
+    }
+    else{
+        timeRemaining = timeRemaining -10;
+    };
     currentQuestion = currentQuestion + 1;
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
-    console.log(currentQuestion);
 };
 
 answerButton3.onclick = function() {
+    if (currentQuestion===2){
+        correct ++;    
+        console.log(correct);
+    }
+    else {
+        timeRemaining = timeRemaining -10;
+    };
     currentQuestion = currentQuestion + 1;
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
-    console.log(currentQuestion);
 };
 
 answerButton4.onclick = function() {
+    if (currentQuestion===1){
+        correct ++;    
+        console.log(correct);
+    }
+    else{
+        timeRemaining = timeRemaining -10;
+    };
     currentQuestion = currentQuestion + 1;
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
     console.log(currentQuestion);
 };
 
-function startTimer() {
-    timeRemaining = 180;
-    countdownTimer = setInterval(function(){
-        if(timeRemaining = 0){
-            clearInterval(countdownTimer);
-            timer.textContent = "";
-            prompt("Game Over! your score is ?/10, please eneter your initials");
-        }
-    }, 1000);
+function endQuiz() {
+    if(timeRemaining === 0 || currentQuestion ===5){
+        clearInterval(countdownTimer);
+        timer.textContent = ""
+        prompt("Game Over! your score is ?/10, please eneter your initials")
+          }
 };
-
-
-
-
 
 function start() {
+    document.getElementById("start").style.visibility="hidden";
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
-    startTimer();
     console.log(questions[currentQuestion].answers[0]);
-};
+    // start timer
+    countdownTimer = setInterval(function() {
+    timeRemaining--;
+    timer.textContent = timeRemaining; 
+    if(timeRemaining <= 0 || currentQuestion === 5 ) {
+
+        clearInterval(countdownTimer);
+
+        timer.textContent = ""
+        currentScore = prompt("Game Over! your score is: " + correct + "/5, please eneter your initials");
+        answerButton1.style.visibility="hidden";
+        answerButton2.style.visibility="hidden";
+        answerButton3.style.visibility="hidden";
+        answerButton4.style.visibility="hidden";
+        highScore.textContent="Highscore:" + currentHigh;
+        yourScore.textContent= ("Your score: " + currentScore + " " + correct  + "/5");
+    };
+    
+    // if (currentQuestion === 5){
+    //     prompt("Game Over! your score is ?/5, please eneter your initials");
+    //     return;
+    // };
+    
+    
+}, 
+1000);};
