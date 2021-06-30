@@ -4,10 +4,10 @@ var timeRemaining
 var timer = document.querySelector(".timer");
 var quizQuestion = document.querySelector(".question");
 var answerButtons = document.querySelectorAll(".answerButton");
-var answerButton0 = document.querySelector("#answer0")
-var answerButton1 = document.querySelector("#answer1")
-var answerButton2 = document.querySelector("#answer2")
-var answerButton3 = document.querySelector("#answer3")
+var answerButton1 = document.getElementById("answer1");
+var answerButton2 = document.getElementById("answer2");
+var answerButton3 = document.getElementById("answer3");
+var answerButton4 = document.getElementById("answer4");
 var currentQuestion = 0;
 var questions = [{
     question: "What color is the sky?",
@@ -36,19 +36,20 @@ var questions = [{
 
 // function that displays question when called upon
 function displayQuestions(index){
-    quizQuestion.textContent = questions[index].question
+    quizQuestion.textContent = questions[index].question;
 };
 
 function displayAnswers(index){
-    answerButton0.textContent = questions[index].answers[0];
-    answerButton1.textContent = questions[index].answers[1];
-    answerButton2.textContent = questions[index].answers[2];
-    answerButton3.textContent = questions[index].answers[3];
+    answerButton1.textContent = questions[index].answers[0];
+    answerButton2.textContent = questions[index].answers[1];
+    answerButton3.textContent = questions[index].answers[2];
+    answerButton4.textContent = questions[index].answers[3];
 };
 
 
 function start() {
     displayQuestions(currentQuestion);
     displayAnswers(currentQuestion);
-    console.log(questions[currentQuestion].answers);
+    console.log(questions[currentQuestion].answers[0]);
 };
+
